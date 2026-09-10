@@ -1,0 +1,30 @@
+{
+  "name": "stilpress/b-counter",
+  "title": "Counter",
+  "description": "",
+  "style": [
+    "file:./style.css"
+  ],
+  "viewScript": [
+    "gsapScrollTrigger",
+    "file:./script.js"
+  ],
+  "category": "stilpress-all",
+  "icon": "block-default",
+  "apiVersion": 3,
+  "keywords": [
+    "counter"
+  ],
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "className": true,
+    "customClassName": true,
+    "alignContent": false
+  },
+  "acf": {
+    "hideFieldsInSidebar": true,
+    "blockVersion": 3,
+    "renderTemplate": "block.php"
+  }
+}

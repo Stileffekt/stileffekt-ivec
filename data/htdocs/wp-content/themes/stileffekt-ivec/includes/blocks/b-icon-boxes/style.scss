@@ -1,0 +1,139 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-icon-boxes {
+
+  .b__content {
+    @include grid-column(24);
+  }
+
+  .b__boxes {
+    @include grid-column(24);
+
+    .c-boxes {
+      display: flex;
+      flex-flow: row wrap;
+      row-gap: var(--layout-gutter);
+      justify-content: center;
+    }
+
+    .c-box {
+      background: var(--color-background-2);
+      border-radius: var(--border-radius-md);
+      display: flex;
+      flex-flow: column;
+      padding: #{fluid(24px, 32px)};
+      min-width: 0;
+      flex-flow: column nowrap;
+      text-align: center;
+
+      @include grid-column(24);
+    }
+
+
+    .c-box__header {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+
+      .c-icon {
+        width: fluid(32px, 48px);
+        height: fluid(32px, 48px);
+
+        svg path {
+          fill: var(--color-1);
+        }
+      }
+
+    }
+
+    .c-box__header + .c-box__body {
+      margin-top: #{fluid(16px,24px)};
+    }
+
+    .c-box__body {
+      display: flex;
+      flex-flow: column nowrap;
+      flex-grow: 1;
+
+      .c-text {
+        margin-top: #{fluid(8px,16px)};
+      }
+
+      .c-text:has(+ .c-links) {
+        margin-bottom: #{fluid(16px,32px)};
+      }
+
+      .c-links {
+        margin-top: auto;
+        justify-content: center;
+      }
+    }
+
+  }
+
+  .b__content + .b__boxes {
+    margin-top: var(--spacing);
+  }
+}
+
+@include breakpoint(sm) {
+
+  .b-icon-boxes {
+    .b__content {
+      @include grid-column(20, 2);
+    }
+
+    .b__boxes {
+      @include grid-column(20, 2);
+
+      .c-boxes {
+        .c-box {
+          @include grid-column(10, 0, 20);
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .b-icon-boxes {
+
+    .b__content {
+      @include grid-column(16, 4);
+    }
+
+    .b__boxes {
+      @include grid-column(24);
+
+      .c-boxes {
+
+        .c-box {
+          @include grid-column(8);
+        }
+      }
+    }
+
+  }
+}
+
+@include breakpoint(xl) {
+  .b-icon-boxes {
+
+    .b__content {
+      @include grid-column(16, 4);
+    }
+
+    .b__boxes {
+
+      .c-boxes {
+
+        .c-box {
+          @include grid-column(6);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b-link {
+  .b__content {
+    @include grid-column(24);
+
+    .c-links {
+      justify-content: center;
+    }
+  }
+}

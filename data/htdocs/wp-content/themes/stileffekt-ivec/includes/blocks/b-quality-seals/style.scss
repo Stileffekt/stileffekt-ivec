@@ -1,0 +1,97 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+
+.b-quality-seals {
+
+  .b__content {
+    @include grid-column(24)
+  }
+
+  .b__seals {
+    @include grid-column(24);
+  }
+
+  .b__content + .b__seals {
+    margin-top: var(--spacing-xl);
+  }
+
+  .c-seals {
+    background-color: var(--color-background-2);
+    padding: var(--block-padding) 0;
+
+    .l-grid {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      gap: calc(var(--layout-gutter) * 2);
+      column-gap: 0;
+    }
+  }
+
+  .c-seals__item {
+    @include grid-width(24);
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+    min-width: 0;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .c-media {
+    aspect-ratio: unset;
+    padding-bottom: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .c-media__image {
+    max-width: 100px;
+    height: auto;
+    position: relative;
+  }
+}
+
+@include breakpoint(md) {
+  .b-quality-seals {
+    .b__content {
+      @include grid-column(16);
+    }
+
+    .c-seals__item {
+      @include grid-column(12);
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .b-quality-seals {
+    .b__content {
+      @include grid-column(12);
+    }
+
+    .c-seals__item {
+      @include grid-column(8);
+    }
+  }
+}
+
+@include breakpoint(xl) {
+  .b-quality-seals {
+    .c-seals__item {
+      @include grid-column(6);
+    }
+  }
+}
+
+@include breakpoint(xxl) {
+  .b-quality-seals {
+    .c-seals__item {
+      @include grid-column(4.8);
+    }
+  }
+}
+

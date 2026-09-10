@@ -1,0 +1,51 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.b.b-hero {
+  position: relative;
+  background: var(--background-gradient-1);
+
+  &:first-child {
+    margin-top: calc(var(--header-height) * -1);
+    padding-top: calc(var(--block-padding) + var(--header-height));
+  }
+
+  .b__content {
+    @include grid-column(24);
+    font-size: #{fluid(16px, 24px)};
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--spacing-xxl);
+  }
+
+  .b__media {
+    @include grid-column(16, 8);
+
+    .c-media {
+      width: 100%;
+      border-radius: var(--border-radius-lg);
+      overflow: clip;
+    }
+
+    .c-media--fit-cover,
+    .c-media--fit-contain {
+      --media-aspect-ratio: 16/9;
+    }
+  }
+
+}
+
+@include breakpoint(md) {
+  .b.b-hero {
+
+    .b__content {
+      @include grid-column(12);
+      margin-bottom: 0;
+    }
+
+    .b__media {
+      @include grid-column(10, 2);
+    }
+  }
+}

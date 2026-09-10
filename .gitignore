@@ -2,7 +2,7 @@
 #.env
 
 # WordPress Installation
-data/htdocs/
+data/htdocs/*
 
 # Database
 data/mysql/

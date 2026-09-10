@@ -1,0 +1,15 @@
+@use "../../../assets/styles/mixins/breakpoints" as *;
+@use "../../../assets/styles/mixins/grid" as *;
+@use "../../../assets/styles/mixins/fluid" as *;
+
+.w-logo {
+
+  .c-media {
+    aspect-ratio: unset;
+
+    &__image {
+      width: #{fluid(160px,320px)};
+      height: auto;
+    }
+  }
+}
