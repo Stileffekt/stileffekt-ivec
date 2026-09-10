@@ -8,14 +8,14 @@ data/htdocs/
 data/mysql/
 
 # Theme-Tracking für Projekt-Repos: folgende Zeilen einkommentieren
-# !data/htdocs/wp-content/
-# data/htdocs/wp-content/*
-# !data/htdocs/wp-content/themes/
-# data/htdocs/wp-content/themes/*
-# !data/htdocs/wp-content/themes/stileffekt-*/
-# data/htdocs/wp-content/themes/stileffekt-*/*.css
-# data/htdocs/wp-content/themes/stileffekt-*/*.css.map
-# !data/htdocs/wp-content/themes/stileffekt-*/style.css
+!data/htdocs/wp-content/
+data/htdocs/wp-content/*
+!data/htdocs/wp-content/themes/
+data/htdocs/wp-content/themes/*
+!data/htdocs/wp-content/themes/stileffekt-*/
+data/htdocs/wp-content/themes/stileffekt-*/*.css
+data/htdocs/wp-content/themes/stileffekt-*/*.css.map
+!data/htdocs/wp-content/themes/stileffekt-*/style.css
 
 # Logs
 *.log
