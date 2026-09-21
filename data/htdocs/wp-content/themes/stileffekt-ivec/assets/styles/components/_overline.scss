@@ -8,11 +8,14 @@
   span {
     display: inline-block;
     font-size: #{fluid(12px, 14px)};
-    border-radius: #{fluid(24px, 24px)};
+    border-radius: #{fluid(4px, 8px)};
+    background-color: var(--color-background-3);
+    border: 1px solid var(--color-background-3);
+    padding: #{fluid(4px, 6px)};
     line-height: 1.2;
-    letter-spacing: 2px;
-    font-weight: 300;
-    color: var(--color-1);
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: var(--color-5);
     text-transform: uppercase;
   }
 }

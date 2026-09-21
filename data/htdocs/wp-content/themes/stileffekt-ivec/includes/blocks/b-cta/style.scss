@@ -4,38 +4,63 @@
 
 .b-cta {
 
-  .b__content {
+  .b__wrapper {
+    background-color: var(--color-1);
     @include grid-column(24);
-    border: 1px solid var(--color-1);
     border-radius: var(--border-radius-lg);
     padding: #{fluid(32px, 64px)};
-    text-align: center;
+    overflow: visible;
+  }
 
-    .c-text {
-      max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
+  .b__content {
+    color: var(--color-text-inverted);
+
+    .c-headline {
+      color: var(--color-text-inverted);
     }
 
-    .c-buttons {
-      justify-content: center;
+    .c-text {
+
+    }
+
+    .c-button {
+      &:hover, &:focus {
+        background-color: var(--color-background-1);
+        border-color: var(--color-background-1);
+        color: var(--color-text);
+
+        .c-icon svg path {
+          fill: var(--color-text);
+        }
+      }
+    }
+  }
+
+  .b__image {
+    margin-top: calc(-3 * #{fluid(32px, 64px)});
+    margin-bottom: calc(-1 * #{fluid(32px, 64px)});
+
+    .c-media {
+      height: 100%;
     }
   }
 }
 
-@include breakpoint(sm) {
+@include breakpoint(xs) {
   .b-cta {
     .b__content {
-      @include grid-column(20, 2);
+      @include grid-column(16);
+    }
+
+    .b__image {
+      @include grid-column(8);
     }
   }
 }
 
 @include breakpoint(lg) {
   .b-cta {
-    .b__content {
-      @include grid-column(16, 4);
-    }
+
   }
 }
 

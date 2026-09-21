@@ -6,8 +6,8 @@
   --root-size: 16px;
 
   // fonts
-  --font-default: 'DM Sans', sans-serif;
-  --font-headline: 'Instrument Serif', sans-serif;
+  --font-default: 'Lato', sans-serif;
+  --font-headline: 'Lato', sans-serif;
 
   // grid
   --layout-columns: 24;
@@ -16,24 +16,24 @@
   --layout-width-max: calc(1920px - (var(--layout-offset) * 2));
 
   // project colors
-  --color-1: #3d524f;
-  --color-2: #f7f7f2;
-  --color-3: #ed579c;
-  --color-4: #ffc2ed;
-  --color-5: #ab998c;
-  --color-6: #ffffff;
-  --color-7: #000000;
-  --color-8: #E3E3DA;
+  --color-1: #0c63a9;
+  --color-2: #ececec;
+  --color-3: #ff002f;
+  --color-4: #ffffff;
+  --color-5: #000000;
+  --color-6: #aaaaaa;
+  --color-7: #333333;
 
-  --color-text: var(--color-7);
-  --color-headline: var(--color-3);
-  --color-text-inverted: var(--color-6);
+  --color-text: var(--color-5);
+  --color-headline: var(--color-1);
+  --color-text-inverted: var(--color-4);
 
-  --color-border: rgba(8, 29, 86, 0.10);
+  --color-border: var(--color-2);
 
-  --color-background-1: var(--color-1);
-  --color-background-2: var(--color-2);
-  --color-background-3: var(--color-6);
+  --color-background-1: var(--color-4);
+  --color-background-2: var(--color-1);
+  --color-background-3: var(--color-2);
+  --color-background-4: var(--color-6);
 
   --background-gradient-1: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(227, 227, 218, 1) 64%);
 

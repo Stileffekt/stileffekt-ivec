@@ -17,7 +17,7 @@
 
         <div class="l-grid">
 
-            <div class="b__content">
+            <div class="b__title">
 
                 <?php if ( ! empty( $overline ) ): ?>
                     <?= $overline ?>
@@ -27,6 +27,17 @@
                     <?= $headline ?>
                 <?php endif; ?>
 
+            </div>
+
+            <?php if ( ! empty( $image_1 ) || ! empty( $video_1 ) ): ?>
+                <div class="b__media">
+                    <?= $image_1 ?>
+                    <?= $video_1 ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="b__content">
+                
                 <?php if ( ! empty( $text ) ): ?>
                     <?= $text ?>
                 <?php endif; ?>
@@ -43,13 +54,6 @@
                 <?php endif; ?>
 
             </div>
-
-            <?php if ( ! empty( $image_1 ) || ! empty( $video_1 ) ): ?>
-                <div class="b__media">
-                    <?= $image_1 ?>
-                    <?= $video_1 ?>
-                </div>
-            <?php endif; ?>
 
         </div>
 

@@ -14,36 +14,48 @@
 
         <div class="l-grid">
 
-            <div class="b__content">
+            <div class="b__wrapper">
 
-                <?php if ( ! empty( $overline ) ): ?>
-                    <?= $overline ?>
-                <?php endif; ?>
+                <div class="l-grid">
 
-                <?php if ( ! empty( $headline ) ): ?>
-                    <?= $headline ?>
-                <?php endif; ?>
+                    <div class="b__content">
 
-                <?php if ( ! empty( $text ) ): ?>
-                    <?= $text ?>
-                <?php endif; ?>
-
-                <?php if ( ! empty( $button_1 ) || ! empty( $button_2 ) ): ?>
-                    <div class="c-buttons">
-                        <?php if ( ! empty( $button_1 ) ): ?>
-                            <?= $button_1 ?>
+                        <?php if ( ! empty( $overline ) ): ?>
+                            <?= $overline ?>
                         <?php endif; ?>
 
-                        <?php if ( ! empty( $button_2 ) ): ?>
-                            <?= $button_2 ?>
+                        <?php if ( ! empty( $headline ) ): ?>
+                            <?= $headline ?>
+                        <?php endif; ?>
+
+                        <?php if ( ! empty( $text ) ): ?>
+                            <?= $text ?>
+                        <?php endif; ?>
+
+                        <?php if ( ! empty( $button_1 ) || ! empty( $button_2 ) ): ?>
+                            <div class="c-buttons">
+                                <?php if ( ! empty( $button_1 ) ): ?>
+                                    <?= $button_1 ?>
+                                <?php endif; ?>
+
+                                <?php if ( ! empty( $button_2 ) ): ?>
+                                    <?= $button_2 ?>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+
+                    </div>
+
+                    <div class="b__image">
+                        <?php if ( ! empty( $image_1 ) ): ?>
+                            <?= $image_1 ?>
                         <?php endif; ?>
                     </div>
-                <?php endif; ?>
 
+                </div>
             </div>
 
         </div>
-
     </div>
 
 </section>

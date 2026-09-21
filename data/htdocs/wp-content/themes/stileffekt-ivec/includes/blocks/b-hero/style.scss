@@ -4,27 +4,25 @@
 
 .b.b-hero {
   position: relative;
-  background: var(--background-gradient-1);
 
   &:first-child {
     margin-top: calc(var(--header-height) * -1);
     padding-top: calc(var(--block-padding) + var(--header-height));
   }
 
-  .b__content {
+  .b__title {
     @include grid-column(24);
-    font-size: #{fluid(16px, 24px)};
     position: relative;
     z-index: 1;
-    margin-bottom: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
   }
 
   .b__media {
-    @include grid-column(16, 8);
+    @include grid-column(24);
 
     .c-media {
       width: 100%;
-      border-radius: var(--border-radius-lg);
       overflow: clip;
     }
 
@@ -34,18 +32,27 @@
     }
   }
 
+  .b__content {
+    @include grid-column(24);
+    font-size: #{fluid(18px, 28px)};
+    position: relative;
+    z-index: 2;
+    margin-top: var(--spacing-xl);
+    text-align: center;
+
+    .c-buttons {
+      justify-content: center;
+    }
+  }
+
+
 }
 
 @include breakpoint(md) {
   .b.b-hero {
 
-    .b__content {
-      @include grid-column(12);
-      margin-bottom: 0;
-    }
-
-    .b__media {
-      @include grid-column(10, 2);
+    .b__title, .b__content {
+      @include grid-column(16, 4);
     }
   }
 }

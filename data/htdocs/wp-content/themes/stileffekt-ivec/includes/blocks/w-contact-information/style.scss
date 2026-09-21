@@ -28,7 +28,7 @@
     height: #{fluid(16px, 24px)};
 
     svg path {
-      color: var(--color-text-inverted);
+      color: var(--color-text);
     }
   }
 
@@ -37,7 +37,7 @@
     transition: color 0.4s ease-in-out;
 
     &:hover {
-      color: var(--color-2);
+      color: var(--color-1);
     }
   }
 }

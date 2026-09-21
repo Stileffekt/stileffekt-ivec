@@ -14,20 +14,21 @@
       font-size: #{fluid(16px, 20px)};
     }
   }
-}
 
-@include breakpoint(sm) {
-  .b-text {
-    .b__content {
-      @include grid-column(20, 2);
+  &.alignment-center {
+    text-align: center;
+
+    .c-buttons {
+      justify-content: center;
     }
   }
 }
 
-@include breakpoint(xl) {
+@include breakpoint(md) {
   .b-text {
     .b__content {
       @include grid-column(16, 4);
     }
   }
 }
+

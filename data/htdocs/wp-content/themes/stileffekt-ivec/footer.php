@@ -12,8 +12,6 @@
                     <?php endif; ?>
                 </div>
 
-                <div class="widgets__break"></div>
-
                 <div class="widgets__area">
                     <?php if ( is_active_sidebar( 'widget-2' ) ): ?>
                         <?php dynamic_sidebar( 'widget-2' ) ?>
@@ -69,11 +67,6 @@
 
     </div>
 
-
-    <div class="footer__decoration">
-        <img src="<?= get_template_directory_uri(); ?>/assets/images/bildmarke.svg" width="456"
-             height="500" alt="">
-    </div>
 
 </footer>
 

@@ -51,4 +51,9 @@ $headline = $block->output( 'headline', 'headline' );
 $text     = $block->output( 'text', 'text' );
 $links    = $block->output( 'links', 'links' );
 
+echo '<pre>';
+var_dump( get_fields() );
+echo '</pre>';
+
+
 include __DIR__ . '/view.php';

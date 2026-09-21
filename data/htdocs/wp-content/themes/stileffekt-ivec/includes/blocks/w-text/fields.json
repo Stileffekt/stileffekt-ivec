@@ -1,9 +1,9 @@
 {
-    "key": "group_w_text",
-    "title": "Widget Text",
+    "key": "group_6aa96f5081606",
+    "title": "Widget Text (kopieren)",
     "fields": [
         {
-            "key": "field_w_text__message",
+            "key": "field_6aa96f50844ad",
             "label": "Text",
             "name": "",
             "aria-label": "",
@@ -22,7 +22,7 @@
             "esc_html": 0
         },
         {
-            "key": "field_w_text__headline",
+            "key": "field_6aa96f50844fa",
             "label": "Headline",
             "name": "w-text__headline",
             "aria-label": "",
@@ -44,7 +44,7 @@
             "append": ""
         },
         {
-            "key": "field_w_text__headline_type",
+            "key": "field_6aa96f5084540",
             "label": "Headline Type",
             "name": "w-text__headline_type",
             "aria-label": "",
@@ -78,7 +78,7 @@
             "save_options": 0
         },
         {
-            "key": "field_w_text__headline_style",
+            "key": "field_6aa96f508458b",
             "label": "Headline Style",
             "name": "w-text__headline_style",
             "aria-label": "",
@@ -112,7 +112,7 @@
             "save_options": 0
         },
         {
-            "key": "field_w_text__text",
+            "key": "field_6aa96f50845db",
             "label": "Text",
             "name": "w-text__text",
             "aria-label": "",
@@ -156,6 +156,6 @@
     "allow_ai_access": false,
     "ai_description": "",
     "acfml_field_group_mode": "advanced",
-    "modified": 1789033527,
+    "modified": 1789488976,
     "local_file": "\/var\/www\/html\/wp-content\/themes\/stileffekt-ivec\/includes\/blocks\/w-text\/fields.json"
 }

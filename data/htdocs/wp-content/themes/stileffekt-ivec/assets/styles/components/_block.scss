@@ -5,7 +5,7 @@
 .b {
   margin-top: var(--block-margin);
 }
-
+ 
 main .b {
   &:last-of-type {
     margin-bottom: var(--block-margin);

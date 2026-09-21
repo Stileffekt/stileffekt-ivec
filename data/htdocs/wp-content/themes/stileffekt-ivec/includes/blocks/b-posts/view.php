@@ -7,7 +7,7 @@
 ?>
 
 <div id="<?= $block->return_id(); ?>"
-     class="<?= $block->return_classes(); ?> l-padding l-background-3 l-padding-top l-padding-bottom">
+     class="<?= $block->return_classes(); ?> l-padding">
 
     <div class="l-width">
 
@@ -37,28 +37,40 @@
                     <div class="c-posts">
 
                         <?php foreach ( $posts as $item ): ?>
-                            <a class="c-post" href="<?= $item['permalink'] ?>">
+                            <a
+                                    class="c-post"
+                                    href="<?= esc_url( $item['permalink'] ); ?>"
+                                    aria-label="<?= esc_attr( wp_strip_all_tags( $item['title'] ) ); ?>"
+                            >
 
                                 <?php if ( ! empty( $item['image'] ) ): ?>
                                     <div class="c-post__header">
-                                        <?= $item['image'] ?>
+                                        <?= $item['image']; ?>
                                     </div>
                                 <?php endif; ?>
 
                                 <div class="c-post__body">
 
-                                    <div class="c-post__date">
-                                        <?= stilpress__return_icon( 'Calendar--Streamline-Ultimate' ) ?>
-                                        <span><?= $item['date'] ?></span>
+                                    <?php if ( ! empty( $item['category'] ) ): ?>
+                                        <span class="c-post__label">
+        <?= esc_html( $item['category'] ); ?>
+    </span>
+                                    <?php endif; ?>
+
+                                    <div class="c-post__content">
+                                        <?php if ( ! empty( $item['title'] ) ): ?>
+                                            <?= $item['title']; ?>
+                                        <?php endif; ?>
+
+                                        <span class="c-post__link">
+                    <span>Mehr erfahren</span>
+
+                    <?= stilpress__return_icon(
+                            'Arrow-Up-Right--Streamline-Ultimate'
+                    ); ?>
+                </span>
                                     </div>
 
-                                    <?php if ( ! empty( $item['title'] ) ): ?>
-                                        <?= $item['title'] ?>
-                                    <?php endif; ?>
-
-                                    <?php if ( ! empty( $item['text'] ) ): ?>
-                                        <?= $item['text'] ?>
-                                    <?php endif; ?>
                                 </div>
 
                             </a>

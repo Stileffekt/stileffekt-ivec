@@ -14,6 +14,13 @@ $button_1 = $block->output( 'button_1', 'button', [
 $button_2 = $block->output( 'button_2', 'button', [
 	'icon' => 'Arrow-Right-Streamline-Ultimate',
 ] );
+$image_1  = $block->output( 'image_1', 'image_responsive', [
+	'columns' => [
+		'lg'      => 12,
+		'sm'      => 20,
+		'default' => 24,
+	],
+] );
 
 
 include __DIR__ . '/view.php';

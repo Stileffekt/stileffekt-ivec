@@ -3,7 +3,7 @@
 @use "../mixins/fluid" as *;
 
 .header {
-  background-color: var(--color-8);
+  background-color: var(--color-background-1);
   position: fixed;
   top: 0;
   width: 100%;
@@ -84,7 +84,7 @@
   }
 
   &--scrolled {
-    background-color: var(--color-8);
+    background-color: var(--color-background-1);
   }
 
   &--hidden {

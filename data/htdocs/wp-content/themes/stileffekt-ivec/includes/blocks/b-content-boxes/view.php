@@ -10,7 +10,7 @@
 ?>
 
 <div id="<?= $block->return_id(); ?>"
-     class="<?= $block->return_classes(); ?> l-padding l-background-1 l-text-inverted l-padding-top l-padding-bottom">
+     class="<?= $block->return_classes(); ?> l-padding l-background-2 l-text-inverted l-padding-top l-padding-bottom">
 
     <?php if ( ! empty( $image_1 ) ): ?>
         <div class="b__background">

@@ -22,8 +22,8 @@
   }
 
   .c-faq {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-lg);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-background-3);
 
     &__list {
       display: flex;
@@ -66,7 +66,7 @@
       margin-right: #{fluid(32px, 64px)};
       font-size: #{fluid(14px, 18px)};
       user-select: none;
-      font-weight: 400;
+      font-weight: 700;
       font-family: var(--font-default);
     }
 
@@ -126,12 +126,5 @@
 
 @include breakpoint(lg) {
   .b-faqs {
-    .b__content {
-      @include grid-column(10, 7);
-    }
-
-    .b__faqs {
-      @include grid-column(16, 4);
-    }
   }
 }

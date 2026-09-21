@@ -8,10 +8,10 @@ html {
 }
 
 body {
-  background-color: var(--color-background-3);
+  background-color: var(--color-background-1);
   color: var(--color-text);
   font-family: var(--font-default);
-  font-size: #{fluid(14px, 18px)};
+  font-size: #{fluid(14px, 20px)};
   font-weight: 300;
   line-height: 1.5;
 
@@ -25,9 +25,9 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-headline);
   color: inherit;
   margin-top: #{fluid(20px, 48px)};
-  font-size: #{fluid(40px, 56px)};
+  font-size: #{fluid(32px, 48px)};
   margin-bottom: 0;
-  line-height: 1.28;
+  line-height: 1.2;
   font-weight: 400;
 
   &:first-child {
@@ -37,6 +37,7 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .h1 {
   font-size: #{fluid(48px, 64px)};
+  line-height: 1.1;
 }
 
 h3, .h3 {

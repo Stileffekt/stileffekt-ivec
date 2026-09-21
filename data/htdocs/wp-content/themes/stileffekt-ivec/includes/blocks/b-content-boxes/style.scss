@@ -113,13 +113,13 @@
   }
 }
 
-@include breakpoint(xl) {
+@include breakpoint(md) {
   .b-content-boxes {
     .b__boxes {
     }
 
     .c-boxes {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }

@@ -34,7 +34,6 @@ if ( ! class_exists( 'b_employees' ) ) {
 					$query_data = get_field( 'ptype_employee', get_the_ID() );
 					$name       = ! empty( get_the_title() ) ? '<span>' . get_the_title() . '</span>' : '';
 					$position   = ! empty( $query_data['position'] ) ? '<span>' . $query_data['position'] . '</span>' : '';
-					$areas      = ! empty( $query_data['areas'] ) ? '<span>' . $query_data['areas'] . '</span>' : '';
 
 					$image_1 = '';
 					if ( ! empty( $query_data['image_1'] ) ) {
@@ -46,33 +45,45 @@ if ( ! class_exists( 'b_employees' ) ) {
 						] );
 					}
 					$link_phone = '';
-					if ( ! empty( $query_data['link_phone'] ) ) {
+
+					if (
+						! empty( $query_data['link_phone'] )
+						&& is_array( $query_data['link_phone'] )
+					) {
 						$link_phone = $this->output_link( [
 							'value'     => $query_data['link_phone'],
 							'arguments' => [
-								'icon' => 'Phone--Streamline-Ultimate'
-							]
+								'icon'          => 'Phone--Streamline-Ultimate',
+								'icon_position' => 'left',
+							],
 						] );
 					}
+
 					$link_mail = '';
-					if ( ! empty( $query_data['link_mail'] ) ) {
+
+					if (
+						! empty( $query_data['link_mail'] )
+						&& is_array( $query_data['link_mail'] )
+					) {
 						$link_mail = $this->output_link( [
 							'value'     => $query_data['link_mail'],
 							'arguments' => [
-								'icon' => 'Send-Email-1--Streamline-Ultimate'
-							]
+								'icon'          => 'Send-Email-1--Streamline-Ultimate',
+								'icon_position' => 'left',
+							],
 						] );
 					}
 					$output[] = [
 						'name'       => $name,
 						'position'   => $position,
-						'areas'      => $areas,
 						'image_1'    => $image_1,
 						'link_phone' => $link_phone,
 						'link_mail'  => $link_mail,
 					];
 				}
 			}
+
+			wp_reset_postdata();
 
 			return $output;
 		}

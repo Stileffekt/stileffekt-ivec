@@ -14,7 +14,7 @@
     @include grid-column(24);
     position: relative;
     order: 2;
-    margin-top: var(--spacing-xxl);
+    margin-top: var(--spacing-xl);
 
     .c-media--fit-cover,
     .c-media--fit-contain {

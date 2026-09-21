@@ -15,7 +15,7 @@ $block_config = [
 		'b-employees',
 //		'b-employees-slider',
 		'b-faqs',
-//		'b-form',
+		'b-form',
 //		'b-guide',
 		'b-hero',
 //		'b-history',
@@ -30,7 +30,7 @@ $block_config = [
 //		'b-jobs',
 //		'b-link',
 		'b-logo-slider',
-//		'b-page-links',
+		'b-page-links',
 		'b-page-title',
 //		'b-prices',
 		'b-posts',
@@ -48,7 +48,7 @@ $block_config = [
 
 	// widget blocks (w-*)
 	'widgets' => [
-//		'w-logo',
+		'w-logo',
 //		'w-logos',
 		'w-navigation',
 		'w-contact-information',
