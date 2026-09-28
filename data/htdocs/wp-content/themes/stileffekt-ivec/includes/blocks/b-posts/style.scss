@@ -25,6 +25,27 @@
     margin-top: var(--spacing-xxl);
   }
 
+  .b__filters {
+    margin-bottom: var(--spacing-md);
+
+    .c-buttons {
+      justify-content: center;
+    }
+
+    .c-button {
+      cursor: pointer;
+      color: var(--color-5);
+      background-color: transparent;
+
+      &:hover,
+      &:focus-visible,
+      &.is-active {
+        color: var(--color-text-inverted);
+        background-color: var(--color-7);
+      }
+    }
+  }
+
   .b__links {
     @include grid-column(24);
     margin-top: var(--spacing-xl);
@@ -39,6 +60,66 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: var(--layout-gutter);
+  }
+
+  .c-posts-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: #{fluid(8px, 12px)};
+    margin-top: var(--spacing-xl);
+  }
+
+  .c-posts-pagination .page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: #{fluid(36px, 44px)};
+    height: #{fluid(36px, 44px)};
+    padding: 0;
+    cursor: pointer;
+    color: var(--color-5);
+    font-family: var(--font-default);
+    font-size: #{fluid(14px, 18px)};
+    background-color: transparent;
+    border: 1px solid var(--color-7);
+    border-radius: 50%;
+    transition: color .25s ease-in-out, background-color .25s ease-in-out;
+
+    &:hover,
+    &:focus-visible,
+    &.current {
+      cursor: default;
+      color: var(--color-text-inverted);
+      background-color: var(--color-7);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-7);
+      outline-offset: 2px;
+    }
+
+    &.dots {
+      cursor: default;
+      border-color: transparent;
+    }
+
+    &.prev,
+    &.next {
+      .c-icon {
+        margin: 0;
+      }
+
+      .c-icon,
+      svg {
+        width: #{fluid(14px, 18px)};
+        height: #{fluid(14px, 18px)};
+      }
+
+      svg path {
+        fill: currentColor;
+      }
+    }
   }
 
   .c-post {

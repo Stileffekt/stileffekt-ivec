@@ -3,6 +3,10 @@
  * @var array $block
  * @var string $headline
  * @var array $posts
+ * @var array $filters
+ * @var array $pagination
+ * @var int $active_filter
+ * @var string $filter_base_url
  */
 ?>
 
@@ -33,6 +37,26 @@
 
             <?php if ( ! empty( $posts ) ): ?>
                 <div class="b__posts">
+
+                    <?php if ( ! empty( $filters ) ): ?>
+                        <div class="b__filters">
+                            <div class="c-buttons" role="group" aria-label="<?= esc_attr__( 'Filter posts by category', 'stilpress' ); ?>">
+                                <a class="c-button<?= 0 === $active_filter ? ' is-active' : ''; ?>"
+                                   href="<?= esc_url( $filter_base_url ); ?>"
+                                    <?= 0 === $active_filter ? 'aria-current="true"' : ''; ?>>
+                                    <?= esc_html__( 'All', 'stilpress' ); ?>
+                                </a>
+
+                                <?php foreach ( $filters as $filter ): ?>
+                                    <a class="c-button<?= $active_filter === $filter['id'] ? ' is-active' : ''; ?>"
+                                       href="<?= esc_url( $filter['url'] ); ?>"
+                                        <?= $active_filter === $filter['id'] ? 'aria-current="true"' : ''; ?>>
+                                        <?= esc_html( $filter['name'] ); ?>
+                                    </a>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
 
                     <div class="c-posts">
 
@@ -78,6 +102,14 @@
 
                     </div>
 
+                    <?php if ( ! empty( $pagination ) ): ?>
+                        <nav class="c-posts-pagination" aria-label="<?= esc_attr__( 'Posts pagination', 'stilpress' ); ?>">
+                            <?php foreach ( $pagination as $page_link ): ?>
+                                <?= $page_link ?>
+                            <?php endforeach; ?>
+                        </nav>
+                    <?php endif; ?>
+
                 </div>
             <?php endif; ?>
 
@@ -94,4 +126,3 @@
     </div>
 
 </div>
-
