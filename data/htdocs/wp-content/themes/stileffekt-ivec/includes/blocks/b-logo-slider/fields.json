@@ -192,7 +192,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "wpml_cf_preferences": 2,
+                    "wpml_cf_preferences": 1,
                     "return_format": "array",
                     "library": "all",
                     "min_width": "",
@@ -252,7 +252,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "wpml_cf_preferences": 1,
+                    "wpml_cf_preferences": 2,
                     "return_format": "array",
                     "allow_in_bindings": 0,
                     "parent_repeater": "field_b_logo_slider__items"
@@ -281,7 +281,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "acfml_field_group_mode": "advanced",
-    "modified": 1789033526,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/stileffekt-ivec\/includes\/blocks\/b-logo-slider\/fields.json"
+    "acfml_field_group_mode": "translation",
+    "modified": 1790600612
 }

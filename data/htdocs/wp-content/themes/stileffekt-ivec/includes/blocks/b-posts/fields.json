@@ -197,7 +197,7 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "wpml_cf_preferences": 2,
             "return_format": "array",
             "allow_in_bindings": 0
         }
@@ -223,7 +223,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "acfml_field_group_mode": "advanced",
-    "modified": 1789033526,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/stileffekt-ivec\/includes\/blocks\/b-posts\/fields.json"
+    "acfml_field_group_mode": "translation",
+    "modified": 1790600630
 }

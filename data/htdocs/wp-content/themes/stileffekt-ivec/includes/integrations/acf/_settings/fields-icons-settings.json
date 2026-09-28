@@ -28,7 +28,8 @@
             "max_size": "",
             "mime_types": "",
             "insert": "append",
-            "preview_size": "medium"
+            "preview_size": "medium",
+            "wpml_cf_preferences": 1
         }
     ],
     "location": [
@@ -52,7 +53,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1789033526,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/stileffekt-ivec\/includes\/integrations\/acf\/_settings\/fields-icons-settings.json",
-    "acfml_field_group_mode": "advanced"
+    "acfml_field_group_mode": "translation",
+    "modified": 1790600600
 }

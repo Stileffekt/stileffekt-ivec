@@ -39,7 +39,8 @@
             "allow_in_bindings": 0,
             "placeholder": "",
             "prepend": "",
-            "append": ""
+            "append": "",
+            "wpml_cf_preferences": 2
         },
         {
             "key": "field_b_faqs__headline",
@@ -202,7 +203,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1789033526,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/stileffekt-ivec\/includes\/blocks\/b-faqs\/fields.json",
-    "acfml_field_group_mode": "advanced"
+    "acfml_field_group_mode": "translation",
+    "modified": 1790600566
 }

@@ -58,7 +58,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "wpml_cf_preferences": 2,
+                    "wpml_cf_preferences": 1,
                     "allow_in_bindings": 0,
                     "initial_value": "",
                     "parent_repeater": "field_b_counter__items"
@@ -157,5 +157,5 @@
     "allow_ai_access": false,
     "ai_description": "",
     "acfml_field_group_mode": "translation",
-    "modified": 1789033776
+    "modified": 1790600545
 }

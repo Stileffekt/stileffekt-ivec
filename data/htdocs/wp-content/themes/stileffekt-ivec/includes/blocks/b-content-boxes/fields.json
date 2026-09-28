@@ -193,7 +193,8 @@
                     },
                     "allow_in_bindings": 0,
                     "initial_value": "",
-                    "parent_repeater": "field_b_content_boxes__items"
+                    "parent_repeater": "field_b_content_boxes__items",
+                    "wpml_cf_preferences": 1
                 },
                 {
                     "key": "field_b_content_boxes__item_headline",
@@ -215,7 +216,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_b_content_boxes__items"
+                    "parent_repeater": "field_b_content_boxes__items",
+                    "wpml_cf_preferences": 2
                 },
                 {
                     "key": "field_b_content_boxes__item_text",
@@ -297,7 +299,8 @@
             "ajax": 0,
             "placeholder": "",
             "create_options": 0,
-            "save_options": 0
+            "save_options": 0,
+            "wpml_cf_preferences": 1
         },
         {
             "key": "field_b_content_boxes__image_1_position",
@@ -348,7 +351,8 @@
             "ajax": 0,
             "placeholder": "",
             "create_options": 0,
-            "save_options": 0
+            "save_options": 0,
+            "wpml_cf_preferences": 1
         }
     ],
     "location": [
@@ -372,7 +376,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1789033526,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/stileffekt-ivec\/includes\/blocks\/b-content-boxes\/fields.json",
-    "acfml_field_group_mode": "advanced"
+    "acfml_field_group_mode": "translation",
+    "modified": 1790600477
 }

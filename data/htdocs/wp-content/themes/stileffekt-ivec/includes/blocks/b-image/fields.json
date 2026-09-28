@@ -153,7 +153,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "acfml_field_group_mode": "advanced",
-    "modified": 1789033526,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/stileffekt-ivec\/includes\/blocks\/b-image\/fields.json"
+    "acfml_field_group_mode": "translation",
+    "modified": 1790600605
 }

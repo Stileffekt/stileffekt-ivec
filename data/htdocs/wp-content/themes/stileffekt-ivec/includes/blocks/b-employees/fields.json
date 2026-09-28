@@ -178,7 +178,8 @@
             "bidirectional": 0,
             "multiple": 0,
             "allow_null": 0,
-            "bidirectional_target": []
+            "bidirectional_target": [],
+            "wpml_cf_preferences": 1
         }
     ],
     "location": [
@@ -202,7 +203,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1789033526,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/stileffekt-ivec\/includes\/blocks\/b-employees\/fields.json",
-    "acfml_field_group_mode": "advanced"
+    "acfml_field_group_mode": "translation",
+    "modified": 1790600557
 }

@@ -26,7 +26,8 @@
             "max_size": "",
             "mime_types": "",
             "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "preview_size": "medium",
+            "wpml_cf_preferences": 1
         },
         {
             "key": "field_69ddf386b78ee",
@@ -43,7 +44,8 @@
                 "id": ""
             },
             "return_format": "array",
-            "allow_in_bindings": 0
+            "allow_in_bindings": 0,
+            "wpml_cf_preferences": 2
         }
     ],
     "location": [
@@ -67,7 +69,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1789033526,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/stileffekt-ivec\/includes\/integrations\/acf\/_settings\/fields-header-settings.json",
-    "acfml_field_group_mode": "advanced"
+    "acfml_field_group_mode": "translation",
+    "modified": 1790600581
 }

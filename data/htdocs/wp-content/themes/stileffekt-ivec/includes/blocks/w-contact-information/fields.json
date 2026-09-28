@@ -73,7 +73,8 @@
             "ajax": 0,
             "placeholder": "",
             "create_options": 0,
-            "save_options": 0
+            "save_options": 0,
+            "wpml_cf_preferences": 1
         },
         {
             "key": "field_w_contact_information__items",
@@ -96,6 +97,7 @@
             "collapsed": "",
             "button_label": "Add Row",
             "rows_per_page": 20,
+            "wpml_cf_preferences": 1,
             "sub_fields": [
                 {
                     "key": "field_w_contact_information__item_icon",
@@ -113,7 +115,8 @@
                     },
                     "allow_in_bindings": 0,
                     "initial_value": "",
-                    "parent_repeater": "field_w_contact_information__items"
+                    "parent_repeater": "field_w_contact_information__items",
+                    "wpml_cf_preferences": 1
                 },
                 {
                     "key": "field_w_contact_information__item_type",
@@ -143,7 +146,8 @@
                     "placeholder": "",
                     "create_options": 0,
                     "save_options": 0,
-                    "parent_repeater": "field_w_contact_information__items"
+                    "parent_repeater": "field_w_contact_information__items",
+                    "wpml_cf_preferences": 1
                 },
                 {
                     "key": "field_w_contact_information__item_link",
@@ -169,7 +173,8 @@
                     },
                     "return_format": "array",
                     "allow_in_bindings": 0,
-                    "parent_repeater": "field_w_contact_information__items"
+                    "parent_repeater": "field_w_contact_information__items",
+                    "wpml_cf_preferences": 2
                 },
                 {
                     "key": "field_w_contact_information__item_text",
@@ -226,7 +231,6 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1789033527,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/stileffekt-ivec\/includes\/blocks\/w-contact-information\/fields.json",
-    "acfml_field_group_mode": "advanced"
+    "acfml_field_group_mode": "translation",
+    "modified": 1790600667
 }

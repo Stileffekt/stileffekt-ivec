@@ -180,7 +180,7 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 1,
+            "wpml_cf_preferences": 2,
             "return_format": "array",
             "allow_in_bindings": 0
         },
@@ -198,7 +198,7 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 1,
+            "wpml_cf_preferences": 2,
             "return_format": "array",
             "allow_in_bindings": 0
         }
@@ -225,5 +225,5 @@
     "allow_ai_access": false,
     "ai_description": "",
     "acfml_field_group_mode": "translation",
-    "modified": 1790154467
+    "modified": 1790600653
 }
