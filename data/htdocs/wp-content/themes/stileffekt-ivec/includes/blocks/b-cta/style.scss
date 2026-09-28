@@ -9,6 +9,7 @@
     @include grid-column(24);
     border-radius: var(--border-radius-lg);
     padding: #{fluid(32px, 64px)};
+    padding-right: 0;
     overflow: visible;
   }
 
@@ -42,6 +43,13 @@
 
     .c-media {
       height: 100%;
+
+      &__image {
+        object-fit: contain;
+        height: auto;
+        top: unset;
+        bottom: 0;
+      }
     }
   }
 }
@@ -49,11 +57,11 @@
 @include breakpoint(xs) {
   .b-cta {
     .b__content {
-      @include grid-column(16);
+      @include grid-column(12);
     }
 
     .b__image {
-      @include grid-column(8);
+      @include grid-column(12);
     }
   }
 }

@@ -18,6 +18,7 @@ if ( ! class_exists( 'b_content_boxes' ) ) {
 
 				$icon = ! empty( $item['icon'] ) ? stilpress__return_icon( $item['icon'] ) : '';
 
+
 				$headline = $this->output_headline( [
 					'value'     => $item['headline'],
 					'arguments' => [

@@ -390,6 +390,60 @@ class Stilpress_Block_Helper {
 		return '<figure class="' . $this->return_media_classes( $data ) . ' is-preview"></figure>';
 	}
 
+	protected function return_media_classes( array $data ): string {
+		$classes = [
+			'c-media',
+			'c-media--fit-' . $this->return_image_behaviour_value( $data ),
+			'c-media--pos-' . $this->return_image_position_value( $data ),
+		];
+
+		if ( ! empty( $data['arguments']['media_classes'] ) ) {
+			$classes[] = $data['arguments']['media_classes'];
+		}
+
+		return implode( ' ', array_filter( $classes ) );
+	}
+
+	protected function return_image_behaviour_value( array $data ): string {
+		$behaviour = ! empty( $data['name'] ) ? $this->return_raw_data_value( $data['name'] . '_behaviour' ) : '';
+		$behaviour = $behaviour ?: ( $data['arguments']['behaviour'] ?? '' );
+		$behaviour = $behaviour ?: ( $data['arguments']['image_behaviour'] ?? '' );
+		$behaviour = $behaviour ?: 'natural';
+		$behaviour = strtolower( str_replace( '_', '-', (string) $behaviour ) );
+
+		if ( ! in_array( $behaviour, [ 'natural', 'cover', 'contain' ], true ) ) {
+			return 'natural';
+		}
+
+		return $behaviour;
+	}
+
+	protected function return_image_position_value( array $data ): string {
+		$position = ! empty( $data['name'] ) ? $this->return_raw_data_value( $data['name'] . '_position' ) : '';
+		$position = $position ?: ( $data['arguments']['position'] ?? '' );
+		$position = $position ?: ( $data['arguments']['image_position'] ?? '' );
+		$position = $position ?: 'center-center';
+		$position = strtolower( str_replace( '_', '-', (string) $position ) );
+
+		$allowed_positions = [
+			'top-left',
+			'top-center',
+			'top-right',
+			'center-left',
+			'center-center',
+			'center-right',
+			'bottom-left',
+			'bottom-center',
+			'bottom-right',
+		];
+
+		if ( ! in_array( $position, $allowed_positions, true ) ) {
+			return 'center-center';
+		}
+
+		return $position;
+	}
+
 	/**
 	 * Output responsive image with WordPress native function
 	 *
@@ -541,61 +595,6 @@ class Stilpress_Block_Helper {
 		$sizes_parts[] = "{$default_vw}vw";
 
 		return implode( ', ', $sizes_parts );
-	}
-
-
-	protected function return_media_classes( array $data ): string {
-		$classes = [
-			'c-media',
-			'c-media--fit-' . $this->return_image_behaviour_value( $data ),
-			'c-media--pos-' . $this->return_image_position_value( $data ),
-		];
-
-		if ( ! empty( $data['arguments']['media_classes'] ) ) {
-			$classes[] = $data['arguments']['media_classes'];
-		}
-
-		return implode( ' ', array_filter( $classes ) );
-	}
-
-	protected function return_image_behaviour_value( array $data ): string {
-		$behaviour = ! empty( $data['name'] ) ? $this->return_raw_data_value( $data['name'] . '_behaviour' ) : '';
-		$behaviour = $behaviour ?: ( $data['arguments']['behaviour'] ?? '' );
-		$behaviour = $behaviour ?: ( $data['arguments']['image_behaviour'] ?? '' );
-		$behaviour = $behaviour ?: 'natural';
-		$behaviour = strtolower( str_replace( '_', '-', (string) $behaviour ) );
-
-		if ( ! in_array( $behaviour, [ 'natural', 'cover', 'contain' ], true ) ) {
-			return 'natural';
-		}
-
-		return $behaviour;
-	}
-
-	protected function return_image_position_value( array $data ): string {
-		$position = ! empty( $data['name'] ) ? $this->return_raw_data_value( $data['name'] . '_position' ) : '';
-		$position = $position ?: ( $data['arguments']['position'] ?? '' );
-		$position = $position ?: ( $data['arguments']['image_position'] ?? '' );
-		$position = $position ?: 'center-center';
-		$position = strtolower( str_replace( '_', '-', (string) $position ) );
-
-		$allowed_positions = [
-			'top-left',
-			'top-center',
-			'top-right',
-			'center-left',
-			'center-center',
-			'center-right',
-			'bottom-left',
-			'bottom-center',
-			'bottom-right',
-		];
-
-		if ( ! in_array( $position, $allowed_positions, true ) ) {
-			return 'center-center';
-		}
-
-		return $position;
 	}
 
 	protected function output_cf7form( array $data ): string {
@@ -752,33 +751,33 @@ class Stilpress_Block_Helper {
 			return '';
 		}
 
-//		$inline_toolbar = is_admin()
-//		                  && function_exists( 'acf_inline_toolbar_editing_attrs' )
-//		                  && ! empty( $data['name'] )
-//		                  && ! empty( $data['arguments']['inline_toolbar'] );
+		$inline_toolbar = is_admin()
+		                  && function_exists( 'acf_inline_toolbar_editing_attrs' )
+		                  && ! empty( $data['name'] )
+		                  && ! empty( $data['arguments']['inline_toolbar'] );
 
 		$url    = '';
 		$target = '';
-//		if ( ! $inline_toolbar ) {
-//			$url    = ! empty( $data['value']['url'] ) ? ' href="' . $data['value']['url'] . '"' : '';
-//			$target = ! empty( $data['value']['target'] ) ? ' target="' . $data['value']['target'] . '"' : '';
-//		}
+		if ( ! $inline_toolbar ) {
+			$url    = ! empty( $data['value']['url'] ) ? ' href="' . $data['value']['url'] . '"' : '';
+			$target = ! empty( $data['value']['target'] ) ? ' target="' . $data['value']['target'] . '"' : '';
+		}
 		$title = ! empty( $data['value']['title'] ) ? $data['value']['title'] : '';
 
 		$inline_attrs = '';
-//		if ( $inline_toolbar ) {
-//			$inline_attrs = ' ' . acf_inline_toolbar_editing_attrs(
-//					[
-//						[
-//							'field_name'  => $this->return_namespaced_field_name( $data['name'] ),
-//							'field_label' => __( 'Button bearbeiten', 'stilpress' ),
-//						]
-//					],
-//					[
-//						'toolbar_title' => __( 'Button bearbeiten', 'stilpress' ),
-//					]
-//				);
-//		}
+		if ( $inline_toolbar ) {
+			$inline_attrs = ' ' . acf_inline_toolbar_editing_attrs(
+					[
+						[
+							'field_name'  => $this->return_namespaced_field_name( $data['name'] ),
+							'field_label' => __( 'Button bearbeiten', 'stilpress' ),
+						]
+					],
+					[
+						'toolbar_title' => __( 'Button bearbeiten', 'stilpress' ),
+					]
+				);
+		}
 
 		$icon_before = false;
 		if ( ! empty( $data['arguments']['position'] ) ) {

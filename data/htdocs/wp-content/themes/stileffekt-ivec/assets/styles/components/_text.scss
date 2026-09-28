@@ -8,6 +8,10 @@
   .c-text {
     margin-top: var(--spacing-xs);
 
+    h1, h2 {
+      color: var(--color-1);
+    }
+
     a {
       color: var(--color-text);
       border-bottom: 1px solid var(--color-text);
@@ -36,7 +40,7 @@
           width: #{fluid(6px,8px)};
           height: #{fluid(6px,8px)};
           border-radius: 50%;
-          background-color: var(--color-2);
+          background-color: var(--color-1);
           margin-left: calc(#{fluid(16px, 20px)} * -1);
           color: inherit;
         }

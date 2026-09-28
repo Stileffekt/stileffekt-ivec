@@ -1,13 +1,13 @@
 {
-  "name": "stilpress/b-text",
-  "title": "Text",
+  "name": "stilpress/b-table",
+  "title": "Table",
   "description": "",
   "style": "file:./style.css",
   "category": "stilpress-all",
   "icon": "block-default",
   "apiVersion": 3,
   "keywords": [
-    "text"
+    "table"
   ],
   "supports": {
     "align": false,

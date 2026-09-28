@@ -22,7 +22,7 @@
 
         <div class="l-grid">
 
-            <?php if ( ! empty( $overline ) || ! empty( $headline ) || ! empty( $texct ) ): ?>
+            <?php if ( ! empty( $overline ) || ! empty( $headline ) || ! empty( $text ) ): ?>
                 <div class="b__content">
 
                     <?php if ( ! empty( $overline ) ): ?>

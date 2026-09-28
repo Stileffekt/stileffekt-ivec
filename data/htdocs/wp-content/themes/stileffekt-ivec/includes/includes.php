@@ -41,6 +41,7 @@ $block_config = [
 //		'b-quotes-slider',
 //		'b-references',
 //		'b-number-list-image',
+		'b-table',
 		'b-text',
 		'b-text-image',
 //		'b-video',

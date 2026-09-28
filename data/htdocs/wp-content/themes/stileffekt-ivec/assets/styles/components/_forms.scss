@@ -9,10 +9,10 @@ input[type="file"],
 textarea,
 select {
   font-family: var(--font-default);
-  background-color: var(--color-background-2);
+  background-color: var(--color-background-1);
   width: 100%;
   border-radius: #{fluid(6px,8px)};
-  border: 1px solid var(--color-1);
+  border: 1px solid var(--color-6);
   line-height: #{fluid(40px, 48px)};
   height: #{fluid(40px, 48px)};
   font-size: #{fluid(14px, 16px)};
@@ -66,9 +66,8 @@ input[type="file"] {
 input[type="submit"],
 button[type="submit"] {
   background-color: var(--color-background-2);
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--color-1);
-  color: var(--color-1);
+  border-radius: 50px;
+  color: var(--color-text-inverted);
   padding: 0 #{fluid(16px, 24px)};
   font-weight: 800;
   line-height: 1.2;
@@ -77,8 +76,8 @@ button[type="submit"] {
   width: unset;
 
   &:hover {
-    color: var(--color-2);
-    background-color: var(--color-1);
+    color: var(--color-text-inverted);
+    background-color: var(--color-3);
   }
 }
 
