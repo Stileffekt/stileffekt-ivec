@@ -28,6 +28,16 @@
                     <?= $text ?>
                 <?php endif; ?>
 
+                <?php if ( ! empty( $button_1 ) || ! empty( $button_2 ) ): ?>
+                    <div class="c-buttons">
+                        <?php if ( ! empty( $button_1 ) ): ?>
+                            <?= $button_1 ?>
+                        <?php endif; ?>
+                        <?php if ( ! empty( $button_2 ) ): ?>
+                            <?= $button_2 ?>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <?php if ( ! empty( $links ) ): ?>

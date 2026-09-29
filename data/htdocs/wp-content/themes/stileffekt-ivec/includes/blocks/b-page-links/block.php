@@ -17,24 +17,15 @@ if ( ! class_exists( 'b_page_links' ) ) {
 
 			foreach ( $data['value'] as $link ) {
 
+
 				$url    = ! empty( $link['link']['url'] ) ? ' href="' . $link['link']['url'] . '"' : '';
 				$target = ! empty( $link['link']['target'] ) ? ' target="' . $link['link']['target'] . '"' : '';
 				$title  = ! empty( $link['link']['title'] ) ? '<span>' . $link['link']['title'] . '</span>' : '';
-
-//				$image = ! empty( $link['image_1'] ) ? $this->output_image( [
-//					'value'     => $link['image_1'],
-//					'arguments' => [
-//						'image_position' => $link['image_1_position'] ?? 'center-center',
-//						'overlay'        => true,
-//						'overlay_icon'   => 'hex-plus'
-//					]
-//				] ) : '';
 
 				$output[] = [
 					'url'    => $url,
 					'target' => $target,
 					'title'  => $title,
-//					'image'  => $image,
 				];
 
 			}
@@ -49,11 +40,8 @@ $block    = new b_page_links( $block );
 $overline = $block->output( 'overline', 'overline' );
 $headline = $block->output( 'headline', 'headline' );
 $text     = $block->output( 'text', 'text' );
-$links    = $block->output( 'links', 'links' );
-
-echo '<pre>';
-var_dump( get_fields() );
-echo '</pre>';
-
+$button_1 = $block->output( 'button_1', 'button' );
+$button_2 = $block->output( 'button_2', 'button' );
+$links    = $block->output( 'items', 'links' );
 
 include __DIR__ . '/view.php';
