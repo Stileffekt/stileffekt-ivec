@@ -3,6 +3,7 @@
 @use "../../../assets/styles/mixins/fluid" as *;
 
 .b-cta {
+  padding-top: var(--block-padding);
 
   .b__wrapper {
     background-color: var(--color-1);
@@ -38,7 +39,7 @@
   }
 
   .b__image {
-    margin-top: calc(-3 * #{fluid(32px, 64px)});
+
     margin-bottom: calc(-1 * #{fluid(32px, 64px)});
 
     .c-media {
