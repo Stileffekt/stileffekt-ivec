@@ -30,9 +30,6 @@ if ( ! class_exists( 'b_page_links' ) ) {
 				];
 
 			}
-			echo "<pre>";
-			print_r( $output );
-			echo "</pre>";
 
 			return $output;
 
