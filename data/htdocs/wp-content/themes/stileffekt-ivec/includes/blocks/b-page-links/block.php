@@ -17,20 +17,25 @@ if ( ! class_exists( 'b_page_links' ) ) {
 
 			foreach ( $data['value'] as $link ) {
 
-
+				$text   = $link['text'];
 				$url    = ! empty( $link['link']['url'] ) ? ' href="' . $link['link']['url'] . '"' : '';
 				$target = ! empty( $link['link']['target'] ) ? ' target="' . $link['link']['target'] . '"' : '';
 				$title  = ! empty( $link['link']['title'] ) ? '<span>' . $link['link']['title'] . '</span>' : '';
 
 				$output[] = [
+					'text'   => $text,
 					'url'    => $url,
 					'target' => $target,
 					'title'  => $title,
 				];
 
 			}
+			echo "<pre>";
+			print_r( $output );
+			echo "</pre>";
 
 			return $output;
+
 		}
 
 	}

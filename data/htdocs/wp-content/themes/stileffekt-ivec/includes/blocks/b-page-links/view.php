@@ -48,9 +48,19 @@
 
                         <?php foreach ( $links as $item ): ?>
 
-                            <?php if ( ! empty( $item['url'] ) ): ?>
-                                <a class="c-page-links__item"<?= $item['url'] ?><?= $item['target'] ?>>
+                            <?php if ( ! empty( $item['text'] ) and $item['url'] == 'href="#"' ): ?>
+                                <div class="c-page-links__item">
+                                    1
+                                    <div class="c-page-links__title">
+                                        <?= $item['text'] ?>
+                                    </div>
 
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ( ! empty( $item['url'] ) and $item['url'] != 'href="#"' ): ?>
+                                <a class="c-page-links__item"<?= $item['url'] ?><?= $item['target'] ?>>
+                                    2
                                     <div class="c-page-links__title">
                                         <?= $item['title'] ?>
                                     </div>
