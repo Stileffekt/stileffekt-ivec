@@ -19,6 +19,10 @@
                     <?php echo stilpress__return_logo( 'header' ) ?>
                 </div>
 
+                <div class="header__languages">
+                    <?php stilpress__language_switcher_wpml(); ?>
+                </div>
+
                 <?php if ( has_nav_menu( 'main' ) ): ?>
                     <button class="header__toggle toggle toggle--navigation"
                             aria-label="<?php esc_attr_e( 'Open Navigation', 'stilpress' ) ?>"

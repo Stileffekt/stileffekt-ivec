@@ -37,7 +37,7 @@ function stilpress__language_switcher_wpml( array $args = [] ): void {
 	$defaults = [
 		'variant'      => 'inline',
 		'separator'    => '|',
-		'display'      => 'code',
+		'display'      => 'name',
 		'show_current' => true,
 		'id'           => 'lang-menu',
 	];

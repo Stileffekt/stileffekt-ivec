@@ -28,7 +28,6 @@
 
 .c-lang-switcher__separator {
   margin: 0 8px;
-  font-weight: 600;
   margin-bottom: 3px;
 }
 
@@ -38,7 +37,6 @@
   text-decoration: none;
   color: inherit;
   transition: color 0.2s ease;
-  font-weight: 600;
 
   &:hover {
     color: var(--color-1);
@@ -52,6 +50,5 @@
 
   &--active {
     color: var(--color-1);
-    font-weight: bold;
   }
 }
