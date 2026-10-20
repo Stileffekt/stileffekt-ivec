@@ -3,7 +3,6 @@
   "title": "Employees",
   "description": "",
   "style": "file:./style.css",
-  "viewScript": "file:./script.js",
   "category": "stilpress-all",
   "icon": "block-default",
   "apiVersion": 3,

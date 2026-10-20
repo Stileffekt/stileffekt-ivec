@@ -3,7 +3,7 @@
   "title": "Downloads Accordion",
   "description": "",
   "style": "file:./style.css",
-  "viewScript": "file:./script.js",
+  "script": "file:./script.js",
   "category": "stilpress-all",
   "icon": "block-default",
   "apiVersion": 3,

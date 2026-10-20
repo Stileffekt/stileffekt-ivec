@@ -2,7 +2,7 @@
 
 
 // theme version constant
-define( 'STILPRESS_VERSION', '1.1.0' );
+define( 'STILPRESS_VERSION', '1.1.1' );
 
 // add/remove theme support
 function stilpress__theme_support(): void {
@@ -56,17 +56,30 @@ function stilpress__register_nav_menus(): void {
 add_action( 'after_setup_theme', 'stilpress__register_nav_menus' );
 
 
-// register styles
-function stilpress__register_styles(): void {
+/**
+ * Register shared block assets before block metadata is processed.
+ */
+function stilpress__register_block_assets(): void {
 
     $version = STILPRESS_VERSION;
 
     wp_register_style( 'styles', get_theme_file_uri( '/assets/styles/styles.css' ), [], $version );
     wp_register_style( 'splide', get_theme_file_uri( '/assets/styles/_lib/splide/splide.css' ), [], $version );
     wp_register_style( 'choices', get_theme_file_uri( '/assets/styles/_lib/choices/choices-base.css' ), [], $version );
+
+    wp_register_script( 'stilpress-blocks', get_theme_file_uri( '/assets/scripts/blocks.js' ), [], $version, false );
+    wp_register_script( 'splide', get_theme_file_uri( '/assets/scripts/_lib/splide/splide.min.js' ), [], $version, true );
+    wp_register_script( 'splide-autoscroll', get_theme_file_uri( '/assets/scripts/_lib/splide/splide-autoscroll.min.js' ), [ 'splide' ], $version, true );
+    wp_register_script( 'choices', get_theme_file_uri( '/assets/scripts/_lib/choices/choices.min.js' ), [], $version, true );
+    wp_register_script( 'gsap', get_theme_file_uri( '/assets/scripts/_lib/gsap/gsap.min.js' ), [], $version, true );
+    wp_register_script( 'gsapScrollTrigger', get_theme_file_uri( '/assets/scripts/_lib/gsap/gsapScrollTrigger.min.js' ),
+            [ 'gsap' ], $version, true );
+    wp_register_script( 'gsapFlip', get_theme_file_uri( '/assets/scripts/_lib/gsap/gsapFlip.min.js' ), [ 'gsap' ],
+            $version, true );
+    wp_register_script( 'popper', get_theme_file_uri( '/assets/scripts/_lib/popper/popper.min.js' ), [], $version, true );
 }
 
-add_action( 'init', 'stilpress__register_styles', 5 );
+add_action( 'init', 'stilpress__register_block_assets', 5 );
 
 
 // enqueue global content styles before block-specific styles
@@ -112,22 +125,7 @@ add_action( 'wp_enqueue_scripts', 'stilpress__dequeue_default_styles', 100 );
  * en/dequeue scripts
  */
 function stilpress__scripts(): void {
-
-    $version = STILPRESS_VERSION;
-
-    wp_register_script( 'splide', get_theme_file_uri( '/assets/scripts/_lib/splide/splide.min.js' ), [], $version, true );
-    wp_register_script( 'splide-autoscroll', get_theme_file_uri( '/assets/scripts/_lib/splide/splide-autoscroll.min.js' ), [ 'splide' ], $version, true );
-
-    wp_register_script( 'choices', get_theme_file_uri( '/assets/scripts/_lib/choices/choices.min.js' ), [], $version, true );
-
-    wp_register_script( 'gsap', get_theme_file_uri( '/assets/scripts/_lib/gsap/gsap.min.js' ), [], $version, true );
-    wp_register_script( 'gsapScrollTrigger', get_theme_file_uri( '/assets/scripts/_lib/gsap/gsapScrollTrigger.min.js' ),
-            array( 'gsap' ), $version, true );
-    wp_register_script( 'gsapFlip', get_theme_file_uri( '/assets/scripts/_lib/gsap/gsapFlip.min.js' ), array( 'gsap' ),
-            $version, true );
-
-    wp_register_script( 'popper', get_theme_file_uri( '/assets/scripts/_lib/popper/popper.min.js' ), [], $version, true );
-    wp_enqueue_script( 'scripts', get_theme_file_uri( '/assets/scripts/scripts.js' ), [], $version, true );
+    wp_enqueue_script( 'scripts', get_theme_file_uri( '/assets/scripts/scripts.js' ), [], STILPRESS_VERSION, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'stilpress__scripts' );

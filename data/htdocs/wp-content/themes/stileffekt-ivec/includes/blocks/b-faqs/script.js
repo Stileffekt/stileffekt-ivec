@@ -1,9 +1,7 @@
-{
-    const blocks = document.querySelectorAll('.b-faqs');
-
-    blocks.forEach(function (block) {
-
+(function (blocks) {
+    blocks.register('.b-faqs', function (block) {
         const items = block.querySelectorAll('.c-faq');
+        const controller = new AbortController();
 
         items.forEach(function (item) {
 
@@ -26,9 +24,12 @@
                 }
             };
 
-            button.addEventListener('click', toggleFaq);
+            button.addEventListener('click', toggleFaq, {signal: controller.signal});
 
         });
 
+        return function () {
+            controller.abort();
+        };
     });
-}
+}(window.stilpressBlocks));

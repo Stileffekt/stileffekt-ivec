@@ -5,9 +5,7 @@
   "style": [
     "file:./style.css"
   ],
-  "viewScript": [
-    "file:./view.js"
-  ],
+  "script": "file:./view.js",
   "category": "stilpress-all",
   "icon": "clock",
   "apiVersion": 3,

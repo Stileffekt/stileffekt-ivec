@@ -5,9 +5,6 @@
   "style": [
     "file:./style.css"
   ],
-  "viewScript": [
-    ""
-  ],
   "category": "stilpress-all",
   "icon": "block-default",
   "apiVersion": 3,

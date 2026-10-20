@@ -6,10 +6,7 @@
     "splide",
     "file:./style.css"
   ],
-  "viewScript": [
-    "splide-autoscroll",
-    "file:./script.js"
-  ],
+  "script": "file:./script.js",
   "category": "stilpress-all",
   "icon": "block-default",
   "apiVersion": 3,

@@ -1,4 +1,4 @@
-(function () {
+(function (blocks) {
   function formatValue(value) {
     return String(value).padStart(2, '0');
   }
@@ -16,7 +16,7 @@
     var targetTime = new Date(goLive).getTime();
 
     if (!goLive || Number.isNaN(targetTime)) {
-      return;
+      return false;
     }
 
     var difference = Math.max(0, targetTime - Date.now());
@@ -30,21 +30,23 @@
     setValue(element, 'hours', hours);
     setValue(element, 'minutes', minutes);
     setValue(element, 'seconds', seconds);
+
+    return difference > 0;
   }
 
-  function initCountdowns() {
-    document.querySelectorAll('[data-countdown]').forEach(function (element) {
-      updateCountdown(element);
-      window.setInterval(function () {
-        updateCountdown(element);
-      }, 1000);
-    });
-  }
+  blocks.register('[data-countdown]', function (element) {
+    if (!updateCountdown(element)) {
+      return;
+    }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCountdowns);
-    return;
-  }
+    var interval = window.setInterval(function () {
+      if (!updateCountdown(element)) {
+        window.clearInterval(interval);
+      }
+    }, 1000);
 
-  initCountdowns();
-}());
+    return function () {
+      window.clearInterval(interval);
+    };
+  });
+}(window.stilpressBlocks));

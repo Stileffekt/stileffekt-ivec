@@ -7,6 +7,7 @@
  * @var string $icon
  * @var array $items
  */
+$filter_id_prefix = $block->return_id() . '-filter';
 ?>
 
 <div id="<?= $block->return_id(); ?>" class="<?= $block->return_classes(); ?> l-padding">
@@ -40,8 +41,8 @@
                     <div class="c-filters">
 
                         <div class="c-filter">
-                            <span class="c-filter__title"><?= __( 'Industries', 'stilpress' ); ?></span>
-                            <select id="industries" name="industries[]" multiple>
+                            <label class="c-filter__title" for="<?= esc_attr( $filter_id_prefix . '-industries' ); ?>"><?= __( 'Industries', 'stilpress' ); ?></label>
+                            <select id="<?= esc_attr( $filter_id_prefix . '-industries' ); ?>" name="industries[]" data-reference-filter="industries" multiple>
                                 <?php if ( ! empty( $industries ) && ! is_wp_error( $industries ) ): ?>
                                     <option value="" disabled hidden>Bitte auswählen…</option>
                                     <?php foreach ( $industries as $term ): ?>
@@ -54,8 +55,8 @@
                         </div>
 
                         <div class="c-filter">
-                            <span class="c-filter__title"><?= __( 'Areas', 'stilpress' ); ?></span>
-                            <select id="areas" name="areas[]" multiple>
+                            <label class="c-filter__title" for="<?= esc_attr( $filter_id_prefix . '-areas' ); ?>"><?= __( 'Areas', 'stilpress' ); ?></label>
+                            <select id="<?= esc_attr( $filter_id_prefix . '-areas' ); ?>" name="areas[]" data-reference-filter="areas" multiple>
                                 <?php if ( ! empty( $areas ) && ! is_wp_error( $areas ) ): ?>
                                     <option value="" disabled hidden>Bitte auswählen…</option>
                                     <?php foreach ( $areas as $term ): ?>
@@ -68,8 +69,8 @@
                         </div>
 
                         <div class="c-filter">
-                            <span class="c-filter__title"><?= __( 'Interfaces', 'stilpress' ); ?></span>
-                            <select id="interfaces" name="interfaces[]" multiple>
+                            <label class="c-filter__title" for="<?= esc_attr( $filter_id_prefix . '-interfaces' ); ?>"><?= __( 'Interfaces', 'stilpress' ); ?></label>
+                            <select id="<?= esc_attr( $filter_id_prefix . '-interfaces' ); ?>" name="interfaces[]" data-reference-filter="interfaces" multiple>
                                 <?php if ( ! empty( $interfaces ) && ! is_wp_error( $interfaces ) ): ?>
                                     <option value="" disabled hidden>Bitte auswählen…</option>
                                     <?php foreach ( $interfaces as $term ): ?>
