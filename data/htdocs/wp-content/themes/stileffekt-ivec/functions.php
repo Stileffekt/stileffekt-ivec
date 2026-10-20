@@ -12,7 +12,6 @@ function stilpress__theme_support(): void {
 
     add_theme_support( 'editor-styles' );
     add_editor_style( [
-            'assets/styles/styles.css',
             'assets/styles/editor.css',
     ] );
 
@@ -57,47 +56,56 @@ function stilpress__register_nav_menus(): void {
 add_action( 'after_setup_theme', 'stilpress__register_nav_menus' );
 
 
-// en/dequeue styles
-function stilpress__styles(): void {
+// register styles
+function stilpress__register_styles(): void {
 
     $version = STILPRESS_VERSION;
 
-    // remove default styles
+    wp_register_style( 'styles', get_theme_file_uri( '/assets/styles/styles.css' ), [], $version );
+    wp_register_style( 'splide', get_theme_file_uri( '/assets/styles/_lib/splide/splide.css' ), [], $version );
+    wp_register_style( 'choices', get_theme_file_uri( '/assets/styles/_lib/choices/choices-base.css' ), [], $version );
+}
+
+add_action( 'init', 'stilpress__register_styles', 5 );
+
+
+// enqueue global content styles before block-specific styles
+function stilpress__enqueue_content_styles(): void {
+
+    // Do not load front-end styles in the outer WordPress admin interface.
+    // WordPress disables this flag while collecting assets for the editor iframe.
+    if ( is_admin() && wp_should_load_block_editor_scripts_and_styles() ) {
+        return;
+    }
+
+    wp_enqueue_style( 'styles' );
+}
+
+add_action( 'enqueue_block_assets', 'stilpress__enqueue_content_styles', 5 );
+
+
+// remove default front-end style actions before they run
+function stilpress__remove_default_style_actions(): void {
+    remove_action( 'wp_enqueue_scripts', 'wp_enqueue_classic_theme_styles' );
+    remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+    remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
+    remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+}
+
+add_action( 'after_setup_theme', 'stilpress__remove_default_style_actions', 20 );
+
+
+// dequeue default front-end styles after plugins and WordPress have enqueued their assets
+function stilpress__dequeue_default_styles(): void {
     wp_dequeue_style( 'global-styles' );
+    wp_dequeue_style( 'wp-global-styles-placeholder' );
     wp_dequeue_style( 'classic-theme-styles' );
     wp_dequeue_style( 'wp-block-library' );
     wp_dequeue_style( 'wp-block-library-theme' );
     wp_dequeue_style( 'wc-blocks-style' );
-    remove_action( 'wp_enqueue_scripts', 'wp_enqueue_classic_theme_styles' );
-    remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-    remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
-
-    // register styles
-    wp_register_style( 'splide', get_theme_file_uri( '/assets/styles/_lib/splide/splide.css' ), [], $version );
-    wp_register_style( 'choices', get_theme_file_uri( '/assets/styles/_lib/choices/choices-base.css' ), [], $version );
-
-    // enqueue styles
-    wp_enqueue_style( 'styles', get_theme_file_uri( '/assets/styles/styles.css' ), [], $version );
-
 }
 
-add_action( 'wp_enqueue_scripts', 'stilpress__styles', 100 );
-
-//function stilpress__editor_content_styles(): void {
-//    if ( ! is_admin() ) {
-//        return;
-//    }
-//
-//    wp_enqueue_style(
-//            'stilpress-editor-content',
-//            get_theme_file_uri( '/assets/styles/styles.css' ),
-//            [],
-//            STILPRESS_VERSION
-//    );
-//}
-//
-//add_action( 'enqueue_block_assets', 'stilpress__editor_content_styles', 100 );
-//
+add_action( 'wp_enqueue_scripts', 'stilpress__dequeue_default_styles', 100 );
 
 
 /**
@@ -301,4 +309,3 @@ function whitelabel__search_global() {
 
 add_action( 'wp_ajax_search_global', 'whitelabel__search_global' );
 add_action( 'wp_ajax_nopriv_search_global', 'whitelabel__search_global' );
-
