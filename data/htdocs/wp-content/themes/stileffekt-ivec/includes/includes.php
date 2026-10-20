@@ -4,56 +4,30 @@
 $block_config = [
 	// content blocks (b-*)
 	'blocks'  => [
-//		'b-anchor-navigation',
 		'b-content-boxes',
 		'b-countdown',
 		'b-counter',
 		'b-cta',
-//		'b-customers',
-//		'b-downloads',
-//		'b-downloads-accordion',
 		'b-employees',
-//		'b-employees-slider',
 		'b-faqs',
 		'b-form',
-//		'b-guide',
 		'b-hero',
-//		'b-history',
 		'b-icon-boxes',
-//		'b-icon-list',
-//		'b-iframe',
 		'b-image',
-//		'b-image-boxes',
-//		'b-image-gallery',
-//		'b-image-slider',
-//		'b-infobox',
-//		'b-jobs',
-//		'b-link',
 		'b-logo-slider',
 		'b-page-links',
 		'b-page-title',
-//		'b-prices',
 		'b-posts',
-//		'b-product-categories',
-//		'b-products',
-//		'b-quality-seals',
-//      'b-quote',
-//		'b-quotes-slider',
-//		'b-references',
-//		'b-number-list-image',
 		'b-table',
 		'b-text',
 		'b-text-image',
-//		'b-video',
 	],
 
 	// widget blocks (w-*)
 	'widgets' => [
-		'w-logo',
-//		'w-logos',
-		'w-navigation',
 		'w-contact-information',
-//		'w-social-media',
+		'w-logo',
+		'w-navigation',
 		'w-text',
 	],
 ];
@@ -88,16 +62,8 @@ foreach ( $walkers as $walker ) {
 
 // post types
 $posttypes = [
-//	'downloads',
 	'employees',
-//	'accommodations',
-//	'customers',
 	'faqs',
-//	'jobs',
-//	'prices',
-//	'quotes',
-//	'references',
-//	'seminars',
 ];
 
 foreach ( $posttypes as $posttype ) {
