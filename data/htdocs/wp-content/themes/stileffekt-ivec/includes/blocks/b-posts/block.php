@@ -11,6 +11,7 @@ if ( ! class_exists( 'b_posts' ) ) {
 		private int $max_num_pages = 0;
 		private int $active_filter = 0;
 		private array $filters = [];
+		private bool $pagination_enabled = true;
 
 		/**
 		 * Aktive Kategorie zurückgeben.
@@ -36,7 +37,7 @@ if ( ! class_exists( 'b_posts' ) ) {
 		 * @return array
 		 */
 		public function return_pagination(): array {
-			if ( $this->max_num_pages <= 1 ) {
+			if ( ! $this->pagination_enabled || $this->max_num_pages <= 1 ) {
 				return [];
 			}
 
@@ -69,9 +70,21 @@ if ( ! class_exists( 'b_posts' ) ) {
 		 * @return array
 		 */
 		protected function output_posts( $data ): array {
-			$this->filters = [];
+			$this->filters            = [];
+			$this->pagination_enabled = $this->is_option_enabled( 'show_pagination' );
+			$filters_enabled          = $this->is_option_enabled( 'show_filters' );
 
-			$requested_filter = isset( $_GET['posts_category'] )
+			$items_visible = $this->return_raw_data_value( 'items_visible', null );
+
+			if ( null === $items_visible ) {
+				$items_visible = $this->return_raw_data_value( 'items_count', -1 );
+			}
+
+			$items_visible = is_numeric( $items_visible ) && (int) $items_visible > 0
+				? (int) $items_visible
+				: -1;
+
+			$requested_filter = $filters_enabled && isset( $_GET['posts_category'] )
 				? wp_unslash( $_GET['posts_category'] )
 				: '';
 
@@ -79,18 +92,22 @@ if ( ! class_exists( 'b_posts' ) ) {
 				? absint( $requested_filter )
 				: 0;
 
-			$this->current_page = max(
-				1,
-				(int) get_query_var( 'paged' ),
-				(int) get_query_var( 'page' )
-			);
+			if ( $this->pagination_enabled ) {
+				$this->current_page = max(
+					1,
+					(int) get_query_var( 'paged' ),
+					(int) get_query_var( 'page' )
+				);
+			} else {
+				$this->current_page = 1;
+			}
 
 			$args = [
 				'post_type'      => 'post',
 				'post_status'    => 'publish',
 				'orderby'        => 'date',
 				'order'          => 'ASC',
-				'posts_per_page' => max( 1, (int) get_option( 'posts_per_page', 10 ) ),
+				'posts_per_page' => $items_visible,
 				'paged'          => $this->current_page,
 			];
 
@@ -107,29 +124,31 @@ if ( ! class_exists( 'b_posts' ) ) {
 				];
 			}
 
-			$filter_query_args                   = $args;
-			$filter_query_args['fields']         = 'ids';
-			$filter_query_args['posts_per_page'] = -1;
-			$filter_query_args['paged']          = 1;
-			$filter_query_args['no_found_rows']  = true;
-			$filter_query                        = new WP_Query( $filter_query_args );
+			if ( $filters_enabled ) {
+				$filter_query_args                   = $args;
+				$filter_query_args['fields']         = 'ids';
+				$filter_query_args['posts_per_page'] = -1;
+				$filter_query_args['paged']          = 1;
+				$filter_query_args['no_found_rows']  = true;
+				$filter_query                        = new WP_Query( $filter_query_args );
 
-			if ( ! empty( $filter_query->posts ) ) {
-				$filter_terms = wp_get_object_terms(
-					$filter_query->posts,
-					'category',
-					[
-						'orderby' => 'name',
-						'order'   => 'ASC',
-					]
-				);
+				if ( ! empty( $filter_query->posts ) ) {
+					$filter_terms = wp_get_object_terms(
+						$filter_query->posts,
+						'category',
+						[
+							'orderby' => 'name',
+							'order'   => 'ASC',
+						]
+					);
 
-				if ( ! is_wp_error( $filter_terms ) ) {
-					foreach ( $filter_terms as $filter_term ) {
-						$this->filters[] = [
-							'id'   => $filter_term->term_id,
-							'name' => $filter_term->name,
-						];
+					if ( ! is_wp_error( $filter_terms ) ) {
+						foreach ( $filter_terms as $filter_term ) {
+							$this->filters[] = [
+								'id'   => $filter_term->term_id,
+								'name' => $filter_term->name,
+							];
+						}
 					}
 				}
 			}
@@ -270,6 +289,18 @@ if ( ! class_exists( 'b_posts' ) ) {
 			wp_reset_postdata();
 
 			return $posts;
+		}
+
+		/**
+		 * Boolesche Blockoption mit aktiviertem Standardwert auslesen.
+		 *
+		 * Damit bleiben bestehende Blöcke, die die neuen Felder noch nicht in
+		 * ihren gespeicherten Daten enthalten, abwärtskompatibel.
+		 */
+		private function is_option_enabled( string $field_name ): bool {
+			$value = $this->return_raw_data_value( $field_name, 1 );
+
+			return ! in_array( $value, [ false, 0, '0', '' ], true );
 		}
 	}
 }

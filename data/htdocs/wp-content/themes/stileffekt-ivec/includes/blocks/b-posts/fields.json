@@ -134,11 +134,11 @@
         },
         {
             "key": "field_b_posts__items_count",
-            "label": "Items Count",
+            "label": "Items Visible",
             "name": "b-posts__items_count",
             "aria-label": "",
             "type": "number",
-            "instructions": "",
+            "instructions": "Maximum number of posts shown per page. Use -1 to show all posts.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -184,6 +184,50 @@
             "bidirectional_target": []
         },
         {
+            "key": "field_b_posts__show_filters",
+            "label": "Show Filters",
+            "name": "b-posts__show_filters",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "allow_in_bindings": 0,
+            "wpml_cf_preferences": 1
+        },
+        {
+            "key": "field_b_posts__show_pagination",
+            "label": "Show Pagination",
+            "name": "b-posts__show_pagination",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "allow_in_bindings": 0,
+            "wpml_cf_preferences": 1
+        },
+        {
             "key": "field_b_posts__button_1",
             "label": "Button",
             "name": "b-posts__button_1",
@@ -224,5 +268,5 @@
     "allow_ai_access": false,
     "ai_description": "",
     "acfml_field_group_mode": "translation",
-    "modified": 1790600630
+    "modified": 1792480803
 }
