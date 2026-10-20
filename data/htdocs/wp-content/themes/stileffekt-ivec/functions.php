@@ -68,6 +68,7 @@ function stilpress__register_block_assets(): void {
     wp_register_style( 'choices', get_theme_file_uri( '/assets/styles/_lib/choices/choices-base.css' ), [], $version );
 
     wp_register_script( 'stilpress-blocks', get_theme_file_uri( '/assets/scripts/blocks.js' ), [], $version, false );
+    wp_register_script( 'stilpress-block-editor', get_theme_file_uri( '/assets/scripts/block-editor.js' ), [], $version, true );
     wp_register_script( 'splide', get_theme_file_uri( '/assets/scripts/_lib/splide/splide.min.js' ), [], $version, true );
     wp_register_script( 'splide-autoscroll', get_theme_file_uri( '/assets/scripts/_lib/splide/splide-autoscroll.min.js' ), [ 'splide' ], $version, true );
     wp_register_script( 'choices', get_theme_file_uri( '/assets/scripts/_lib/choices/choices.min.js' ), [], $version, true );
@@ -95,6 +96,20 @@ function stilpress__enqueue_content_styles(): void {
 }
 
 add_action( 'enqueue_block_assets', 'stilpress__enqueue_content_styles', 5 );
+
+
+/**
+ * Load editor-only behavior inside the block editor canvas.
+ */
+function stilpress__enqueue_block_editor_scripts(): void {
+    if ( ! is_admin() ) {
+        return;
+    }
+
+    wp_enqueue_script( 'stilpress-block-editor' );
+}
+
+add_action( 'enqueue_block_assets', 'stilpress__enqueue_block_editor_scripts' );
 
 
 // remove default front-end style actions before they run
