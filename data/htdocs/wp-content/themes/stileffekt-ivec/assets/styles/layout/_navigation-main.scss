@@ -6,6 +6,10 @@
 
   .c-navigation--main {
 
+    .c-navigation__toggle {
+
+    }
+
     .c-navigation__back {
       display: none;
     }
@@ -79,6 +83,7 @@
         > .c-navigation__toggle {
           background: none;
           border: none;
+          font-weight: inherit;
           padding: 0;
           height: 100%;
           display: flex;
